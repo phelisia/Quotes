@@ -10,6 +10,8 @@ import { StrikethroughDirective } from './strikethrough.directive';
 import { DateCountPipe } from './date-count.pipe';
 import { QuoteFormComponent } from './quote-form/quote-form.component';
 import { HighlightBestQuoteDirective } from './highlight-best-quote.directive';
+import {TimeAgoPipe} from 'time-ago-pipe';
+
 
 
 @NgModule({
@@ -21,6 +23,7 @@ import { HighlightBestQuoteDirective } from './highlight-best-quote.directive';
     DateCountPipe,
     QuoteFormComponent,
     HighlightBestQuoteDirective,
+    TimeAgoPipe
     
   ],
   imports: [
