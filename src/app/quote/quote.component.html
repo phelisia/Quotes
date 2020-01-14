@@ -4,19 +4,41 @@
 
   <div class="row">
     <div class="col-md-6">
+        <p *ngIf='quotes.length > 0'><button (click)='findHighestVotes()' class="btn btn-outline-info">Most Liked quote</button>
+    </p>
+    <div *ngIf='bestQuote && quotes.length > 0' appHighlightBestQuote>
+        <div>
+            <p>{{bestQuote}}</p>
+            <p>{{highestCounter}}</p>
+            <p>{{dislikeCounter}}</p>
+        </div>
       <div class="quote" *ngFor='let quote of quotes;let i = index'>
         <p>{{quote.name}}</p>
         <div class="votes">
-          <h3>Likes:<span id="liked">{{quote.counter1}}</span></h3>
-          <h3>Disikes:<span id="disliked">{{quote.counter1}}</span></h3>
+            <div class="row">
+                <div>
+                    <a href="#" onclick="event.preventDefault()" (click)="countClick(quote)">
+                        <i class="fa fa-thumbs-up pr-1  ml-4 like" ng-click="count = count + 1"
+                            ng-init="count=0" style="color:blue;"></i>
+                    </a>
+                    <span class="m-4">{{ quote.clickCounter }}</span>
+                </div>
+                <div>
+                    <a href="#" onclick="event.preventDefault()" (click)="countDislike(quote)">
+                        <i class="fa fa-thumbs-down pr-1 dislike" ng-click="count = count + 1"
+                            ng-init="count=0" style="color:red;"></i>
+                    </a>
+                    <span class="m-4">{{ quote.dislikeCounter }}</span>
+                </div>
+            <!-- </div>ss="bestquote"(click)='getMostLikedQuote()'>Best Quote</button>
+          <div *ngif='mostLikedQuote && quotes.length>0'>
+          <div class="bestVotes" appStrikethrough >
+            <h3>Most Liked Poster</h3>
+            <p>Most Votes:{{mostVotes}}</p>
+            <p>Most Liked Author:{{mostLikedAuthor}}</p>
+            <p>Most Liked Quote:{{mostLikedQuote}}</p>
 
-        <div>
-          <div class="vote-buttons">
-            <button (click)= "upvote(quote)" class="upvote">Like</button>
-            <button (click)= "downvote(quote)" class="downvote">Dislike</button>
-
-          </div>
-          <button></button>
+          </div> -->
           <h6 id={{i}} appStrikethrough>{{quote.name}} due on {{quote.completeDate|date|uppercase}}</h6>
           <button (click)='toggleDetails(i)' class="btn btn-primary">Toggle Details</button>
         </div>
