@@ -4,8 +4,19 @@
 
   <div class="row">
     <div class="col-md-6">
-      <div *ngFor='let quote of quotes;let i = index'>
+      <div class="quote" *ngFor='let quote of quotes;let i = index'>
+        <p>{{quote.name}}</p>
+        <div class="votes">
+          <h3>Likes:<span id="liked">{{quote.counter1}}</span></h3>
+          <h3>Disikes:<span id="disliked">{{quote.counter1}}</span></h3>
+
         <div>
+          <div class="vote-buttons">
+            <button (click)= "upvote(quote)" class="upvote">Like</button>
+            <button (click)= "downvote(quote)" class="downvote">Dislike</button>
+
+          </div>
+          <button></button>
           <h6 id={{i}} appStrikethrough>{{quote.name}} due on {{quote.completeDate|date|uppercase}}</h6>
           <button (click)='toggleDetails(i)' class="btn btn-primary">Toggle Details</button>
         </div>
@@ -17,7 +28,7 @@
     </div>
 
     <div class="col-md-6">
-      <app-quote-form></app-quote-form>
+        <app-quote-form (addQuote)="addNewQuote($event)"></app-quote-form>
     </div>
   </div>
 

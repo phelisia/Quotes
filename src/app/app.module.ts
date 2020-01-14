@@ -14,8 +14,8 @@ import { QuoteFormComponent } from './quote-form/quote-form.component';
 @NgModule({
   declarations: [
     AppComponent,
-    QuoteComponent,
     QuoteDetailComponent,
+    QuoteComponent,
     StrikethroughDirective,
     DateCountPipe,
     QuoteFormComponent,
@@ -23,8 +23,9 @@ import { QuoteFormComponent } from './quote-form/quote-form.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FormsModule
+  
+  
   ],
   providers: [],
   bootstrap: [AppComponent]
